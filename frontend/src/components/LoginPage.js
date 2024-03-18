@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Navigate } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   
     this.state = {
       message: '',
       email: '',
-      password: ''
-    }
+      password: '',
+      redirect: false
+    };
   }
 
   handleChange = (event) => {
@@ -28,7 +30,8 @@ class Login extends Component {
         password: this.state.password
       });
       this.setState({
-        message: response.data.message
+        message: response.data.message,
+        redirect: true
       });
     } catch (error) {
       this.setState({
@@ -38,6 +41,10 @@ class Login extends Component {
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Navigate to="/home" />;
+    }
+
     return (
       <div className='center'>
         <div className='loginbox'>
@@ -46,11 +53,34 @@ class Login extends Component {
             <h1 style={{ textAlign: 'center' }}>LOGIN</h1><br></br>
             <form className='loginform'>
               <label style={{ margin: '5px' }}>Email address</label>
-              <input value={this.state.email} onChange={this.handleChange} name="email" type="text" className="email" placeholder="qwerty@domain.com" style={{ margin: '5px', border:'none', height:'30px', borderRadius:'4px', width:'300px'}} /><br />
+              <input 
+                value={this.state.email} 
+                onChange={this.handleChange} 
+                name="email" 
+                type="text" 
+                className="email" 
+                placeholder="qwerty@domain.com" 
+                style={{ margin: '5px', border:'none', height:'30px', borderRadius:'4px', width:'300px'}} 
+              /><br />
               <label style={{ margin: '5px' }}>Password</label>
-              <input value={this.state.password} onChange={this.handleChange} name="password" type="password" className="password" placeholder="$JohnDoe1234" style={{ marginLeft: '35px' , border:'none', height:'30px' , borderRadius:'4px', width: '300px' }} /><br />
+              <input 
+                value={this.state.password} 
+                onChange={this.handleChange} 
+                name="password" 
+                type="password" 
+                className="password" 
+                placeholder="$JohnDoe1234" 
+                style={{ marginLeft: '35px' , border:'none', height:'30px' , borderRadius:'4px', width: '300px' }} 
+              /><br />
               <br/>
-              <button type="button" onClick={this.handleSubmit} className='login-button' style={{ margin: 'auto', display: 'block'  }}>Log in</button>
+              <button 
+                type="button" 
+                onClick={this.handleSubmit} 
+                className='login-button' 
+                style={{ margin: 'auto', display: 'block'  }}
+              >
+                Log in
+              </button>
             </form>
             <h5>{this.state.message}</h5>
           </div>
