@@ -11,7 +11,7 @@ function AppRoutes() {
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/" element={<Navigate to="/login" />} />
       <Route exact path="/signup" element={<Signup />} />
-      <Route exact path='/home' element={<HomePage/>}/>
+      <Route exact path='/home' element={<HomePage/>}/> 
     </Routes>
   );
 }

@@ -1,0 +1,70 @@
+.navbut {
+    background-color: white;
+    border: none;
+    padding-right: 30px;
+
+
+}
+
+.navbut:hover ,.loginbut:hover,.addrecipe:hover{
+    cursor: pointer;
+}
+
+.loginbut {
+
+    margin-top: 20px;
+    position: absolute;
+    background-color: rgb(104, 189, 104);
+    border-radius: 30px;
+    border: none;
+    color: white;
+    height: 50px;
+    width: 150px;
+    right: 40px;
+}
+
+
+
+.addrecipe {
+    position: absolute;
+    background-color: white;
+    border: none;
+    right: 210px;
+
+}
+
+
+.background-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px); /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-image {
+    
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.centered-input {
+    
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 500px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    
+}
+

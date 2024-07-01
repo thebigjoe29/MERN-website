@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Navigate } from 'react-router-dom';
+import './LoginPage.css';
 
 class Login extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class Login extends Component {
       message: '',
       email: '',
       password: '',
-      redirect: false
+      redirect: false,
+      
     };
   }
 
@@ -25,20 +27,24 @@ class Login extends Component {
     const url = "http://localhost:8080/api/auth";
 
     try {
-      const response = await axios.post(url, {
-        email: this.state.email,
-        password: this.state.password
-      });
-      this.setState({
-        message: response.data.message,
-        redirect: true
-      });
+        const response = await axios.post(url, {
+            email: this.state.email,
+            password: this.state.password
+        });
+        console.log(response.data.data);
+        this.setState({
+            message: response.data.message,
+            redirect: true
+        });
     } catch (error) {
-      this.setState({
-        message: error.response.data.message
-      });
+        this.setState({
+            message: error.response.data.message
+        }, () => {
+            alert(this.state.message);
+        });
     }
-  };
+};
+
 
   render() {
     if (this.state.redirect) {
@@ -46,13 +52,19 @@ class Login extends Component {
     }
 
     return (
+      // <div className='loginbox'>
+      //   <h1>Login</h1>
+      // </div>
+      <body>
       <div className='center'>
         <div className='loginbox'>
-          <div className='lefthalf'></div>
+          <div className='lefthalf'>
+          <img src='assets/logo2.jpg' alt='hi' height={300}></img>
+          </div>
           <div className='righthalf'>
             <h1 style={{ textAlign: 'center' }}>LOGIN</h1><br></br>
             <form className='loginform'>
-              <label style={{ margin: '5px' }}>Email address</label>
+              <label style={{ margin: '5px' }}>Email address
               <input 
                 value={this.state.email} 
                 onChange={this.handleChange} 
@@ -60,9 +72,11 @@ class Login extends Component {
                 type="text" 
                 className="email" 
                 placeholder="qwerty@domain.com" 
-                style={{ margin: '5px', border:'none', height:'30px', borderRadius:'4px', width:'300px'}} 
+                style={{ margin: '5px', height:'40px', borderRadius:'4px', width:'300px'}} 
               /><br />
-              <label style={{ margin: '5px' }}>Password</label>
+              </label>
+              
+              <label style={{ margin: '5px' }}>Password
               <input 
                 value={this.state.password} 
                 onChange={this.handleChange} 
@@ -70,9 +84,11 @@ class Login extends Component {
                 type="password" 
                 className="password" 
                 placeholder="$JohnDoe1234" 
-                style={{ marginLeft: '35px' , border:'none', height:'30px' , borderRadius:'4px', width: '300px' }} 
+                style={{ marginLeft: '5px' , height:'40px' , borderRadius:'4px', width: '300px' }} 
               /><br />
-              <br/>
+              </label>
+              
+              
               <button 
                 type="button" 
                 onClick={this.handleSubmit} 
@@ -82,10 +98,17 @@ class Login extends Component {
                 Log in
               </button>
             </form>
-            <h5>{this.state.message}</h5>
+            
+            <br></br>
+            <span>
+            Don't have an account?&nbsp;
+            <a href="/signup" >Sign up here!</a>
+            </span>
+            
           </div>
         </div>
       </div>
+    </body>
     );
   }
 }

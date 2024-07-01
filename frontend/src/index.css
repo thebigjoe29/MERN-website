@@ -1,7 +1,7 @@
 body {
   backdrop-filter:  blur(2px);
-  background-video:;
-  background-image: url(C:\Users\Asus\Desktop\my-react-app\frontend\src\assets\download.jpeg);
+  
+  /* background-image: url(assets/logo.jpg); */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

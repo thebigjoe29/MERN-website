@@ -1,0 +1,87 @@
+.email,.firstname,.lastname,.password{
+    background-color:white;
+    display: block;
+    border: 1px solid #ccc;
+    
+  }
+
+  .center {
+    display: flex;
+    justify-content: center; /* Align items horizontally at the center */
+    align-items: center; /* Align items vertically at the center */
+    height: 100vh; /* Make the container take up the full height of the viewport */
+  }
+  .center,.loginbox{
+    background-color: white;  
+  }   
+  
+  .loginbox{
+    
+    height: 600px;
+    width: 900px;
+    
+    border-radius: 40px;
+    display: flex;
+  }
+  .lefthalf{
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 40px 0px 0px 40px;
+    flex:1;
+    
+  }
+  .righthalf{
+    justify-content: center;
+    border-radius: 0px 40px 40px 0px;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    
+  }
+  .login{
+    text-align: center;
+    
+  }
+  /* .submit{
+    cursor: pointer;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background-color:rgb(96, 251, 96);
+  border-radius: 6px;
+  
+  } */
+  
+  .login-button {
+    height: 40px;
+  width: 300px;
+    background-color: #4CAF50;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .login-button:active {
+    background-color: #4CAF50;
+    box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+  }
+  
+  
+  
