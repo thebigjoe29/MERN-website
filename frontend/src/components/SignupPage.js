@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./LoginPage.css";
 import { Navigate } from 'react-router-dom';
 
+
 class Signup extends Component {
   constructor(props) {
     super(props)
@@ -62,15 +63,15 @@ class Signup extends Component {
           <div className='righthalf'>
             <h1 style={{ textAlign: 'center' }}>SIGNUP</h1><br></br>
             <form className='loginform'>
-              <label style={{ margin: '5px' }}>First Name</label>
+              <label style={{ margin: '5px' }}>First Name<sup>*</sup></label>
               <input value={this.state.firstname} onChange={this.handleChange} name="firstname" type="text" className="firstname" placeholder="John" style={{ margin: '5px', height: '40px', borderRadius: '4px', width: '300px' }} /><br />
-              <label style={{ margin: '5px' }}>Last Name</label>
+              <label style={{ margin: '5px' }}>Last Name<sup>*</sup></label>
               <input value={this.state.lastname} onChange={this.handleChange} name="lastname" type="text" className="lastname" placeholder="Doe" style={{ margin: '5px', height: '40px', borderRadius: '4px', width: '300px' }} /><br />
-              <label style={{ margin: '5px' }}>Email Address</label>
+              <label style={{ margin: '5px' }}>Email Address<sup>*</sup></label>
 
               <input value={this.state.email} onChange={this.handleChange} name="email" type="email" className="email" placeholder="qwerty@domain.com" style={{ marginLeft: '5px', height: '40px', borderRadius: '4px', width: '300px' }} /><br />
 
-              <label style={{ margin: '5px' }}>Password</label>
+              <label style={{ margin: '5px' }}>Password<sup>*</sup></label>
               <input value={this.state.password} onChange={this.handleChange} name="password" type="password" className="password" placeholder="$JohnDoe1234" style={{ margin: '5px', height: '40px', borderRadius: '4px', width: '300px' }} /><br />
 
               <button type="button" onClick={this.handleSubmit} className='login-button' style={{ margin: 'auto', display: 'block' }}>Register</button>
